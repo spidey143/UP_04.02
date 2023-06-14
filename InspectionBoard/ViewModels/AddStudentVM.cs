@@ -30,6 +30,9 @@ namespace InspectionBoard.ViewModels
         public static string Admission { get; set; }
         public static Student SelectedStudent { get; set; }
 
+
+        public static string newGender { get; set; }
+
         private RelayCommand addStudent;
         public RelayCommand AddStudent
         {
@@ -69,7 +72,7 @@ namespace InspectionBoard.ViewModels
             {
                 return updateStudent ?? new RelayCommand(obj =>
                 {
-                    DataStudent.UpdateStudent(SelectedStudent);
+                    DataStudent.UpdateStudent(SelectedStudent, newGender);
                     UpdateAllStudentsView();
                 }
                 );

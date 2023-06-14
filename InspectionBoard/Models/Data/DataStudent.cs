@@ -37,9 +37,9 @@ namespace InspectionBoard.Models.Data
         }
 
 
-        public static void UpdateStudent(Student student)
+        public static void UpdateStudent(Student student, string newGender)
         {
-            DbConnect.InspectionBoardContext.Update(student);
+            student.Gender = newGender;
             DbConnect.InspectionBoardContext.SaveChanges();
         }
 

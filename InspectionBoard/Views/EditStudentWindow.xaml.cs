@@ -132,15 +132,24 @@ namespace InspectionBoard.Views
 
         public void Gender_Check(Student student)
         {
-            if (student.Gender == "мужской") {
+            if (student.Gender == "мужской")
+            {
                 Man.IsChecked = true;
-                student.Gender = "мужской";
             }
-            if (student.Gender == "женский") {
+            if (student.Gender == "женский")
+            {
                 Fem.IsChecked = true;
-                student.Gender = "женский";
             }
         }
 
+        private void Man_Checked(object sender, RoutedEventArgs e)
+        {
+            AddStudentVM.newGender = "мужской";
+        }
+
+        private void Fem_Checked(object sender, RoutedEventArgs e)
+        {
+            AddStudentVM.newGender = "женский";
+        }
     }
 }

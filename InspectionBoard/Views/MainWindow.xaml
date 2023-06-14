@@ -6,19 +6,22 @@
         xmlns:vm="clr-namespace:InspectionBoard.ViewModels"
         xmlns:local="clr-namespace:InspectionBoard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    
+        Title="MainWindow" Height="450" Width="1022">
+
     <Window.DataContext>
         <vm:AddStudentVM/>
     </Window.DataContext>
-    
-    <Grid>
+
+    <Grid RenderTransformOrigin="0.497,0.628">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="487*"/>
-            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="500*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1" Margin="0,10,0,0">
-            <Button Content="Добавить" Margin="10" Click="Button_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row ="1" Margin="10,159,10,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Content="Добавить" Margin="10" Click="Button_Click" />
             <Button Content="Изменить" Margin="10" Click="Button_Click_2"/>
             <Button Content="Удалить" Margin="10" Command="{Binding DeleteStudent}"/>
             <Button Content="Выгрузка Excel" Margin="10"/>
@@ -26,16 +29,19 @@
         </StackPanel>
         <StackPanel >
             <TextBlock TextAlignment="Center">Список студентов</TextBlock>
-            <ListView x:Name="ViewAllStudents" Height="414" ItemsSource="{Binding AllStudents, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedStudent}">
+            <ListView x:Name="ViewAllStudents" Height="333" ItemsSource="{Binding AllStudents, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedStudent}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="№" DisplayMemberBinding="{Binding IdStudent}"/>
                         <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding FirstName}"/>
                         <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding LastName}"/>
                         <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronymic}"/>
-                        <GridViewColumn Header="Возраст" DisplayMemberBinding ="{Binding Age}"/>
-                        <GridViewColumn Header="Пол" DisplayMemberBinding ="{Binding Gender}"/>
-                        <GridViewColumn Header="Ср.балл" DisplayMemberBinding ="{Binding Attestat}"/>
+                        <GridViewColumn Header="Возраст" DisplayMemberBinding ="{Binding Age, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Пол" DisplayMemberBinding ="{Binding Gender, UpdateSourceTrigger=PropertyChanged}"/>
+                        <GridViewColumn Header="Ср.балл Аттестата" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Attestat}"/>
+                        <GridViewColumn Header="Справка об Инвалидности" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Admission}"/>
+                        <GridViewColumn Header="Справка об Сиротстве" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Admission}"/>
+                        <GridViewColumn Header="Специальность" DisplayMemberBinding ="{Binding Admission}"/>
                         <GridViewColumn Header="Зачислен" DisplayMemberBinding ="{Binding Admission}"/>
                     </GridView>
                 </ListView.View>

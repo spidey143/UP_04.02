@@ -44,8 +44,8 @@
         <TextBox Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center" Text="{Binding SelectedStudent.Patronymic}"/>
 
         <Label Grid.Row="3" Grid.Column="0" Content="Пол:" Margin="5" HorizontalContentAlignment='Right'/>
-        <RadioButton x:Name="Man" GroupName="Group1" Grid.Column="1" Content="М" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Margin="5, 0, 0, 0" />
-        <RadioButton x:Name="Fem" GroupName="Group1" Grid.Column="1" Content="Ж" HorizontalAlignment="Right" Grid.Row="3" VerticalAlignment="Center" Margin="0, 0,5, 0" />
+        <RadioButton x:Name="Man" GroupName="Group1" Grid.Column="1" Content="М" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Margin="5, 0, 0, 0" Checked="Man_Checked"  />
+        <RadioButton x:Name="Fem" GroupName="Group1" Grid.Column="1" Content="Ж" HorizontalAlignment="Right" Grid.Row="3" VerticalAlignment="Center" Margin="0, 0,5, 0" Checked="Fem_Checked"  />
 
         <Label Grid.Row="4" Grid.Column="0" Content="Дата рождения:" Margin="5" HorizontalContentAlignment='Right'/>
         <TextBox x:Name="DateOfBirth" Grid.Row="4" Grid.Column="1" Margin="5" VerticalAlignment="Center" TextChanged="DateOfBirth_TextChanged" Text="{Binding SelectedStudent.DateOfBirth}"/>
