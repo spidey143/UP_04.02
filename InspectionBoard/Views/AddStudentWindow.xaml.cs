@@ -94,22 +94,26 @@ namespace InspectionBoard.Views
         {
             Photo_Disabled.Visibility = Visibility.Visible;
             Button_Download_Photo_Disabled.Visibility = Visibility.Visible;
+            AddStudentVM.Invalid = "да";
         }
         private void radio_button_no1_Checked(object sender, RoutedEventArgs e)
         {
             Photo_Disabled.Visibility = Visibility.Hidden;
             Button_Download_Photo_Disabled.Visibility = Visibility.Hidden;
+            AddStudentVM.Invalid = "нет";
         }
 
         private void radio_button_yes2_Checked(object sender, RoutedEventArgs e)
         {
             Photo_Orphanage.Visibility = Visibility.Visible;
             Button_Download_Photo_Orphanage.Visibility = Visibility.Visible;
+            AddStudentVM.Sirota = "да";
         }
         private void radio_button_no2_Checked(object sender, RoutedEventArgs e)
         {
             Photo_Orphanage.Visibility = Visibility.Hidden;
             Button_Download_Photo_Orphanage.Visibility = Visibility.Hidden;
+            AddStudentVM.Sirota = "нет";
         }
 
         private void radio_button_yes3_Checked(object sender, RoutedEventArgs e)

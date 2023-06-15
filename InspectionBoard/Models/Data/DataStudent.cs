@@ -15,7 +15,7 @@ namespace InspectionBoard.Models.Data
         public static void CreateStudent(
             string firstName, string lastName, 
             string date_of_birth, string age, string patronymic, 
-            string gender, string attestat, string admission)
+            string gender, string attestat, string admission, string invalid, string sirota)
         {
             DbConnect.InspectionBoardContext.Add(
                 new Student 
@@ -25,7 +25,9 @@ namespace InspectionBoard.Models.Data
                     Age = age, Patronymic = patronymic, 
                     Gender = gender,
                     Attestat = attestat,
-                    Admission = admission
+                    Admission = admission,
+                    Invalid = invalid,
+                    Sirota = sirota
                 }) ;
             DbConnect.InspectionBoardContext.SaveChanges();
         }

@@ -44,5 +44,10 @@ namespace InspectionBoard.Views
             editStudentWindow.ShowDialog();
             Show();
         }
+
+        private void GridViewColumn_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
+        }
     }
 }

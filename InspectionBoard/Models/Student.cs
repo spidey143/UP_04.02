@@ -42,6 +42,6 @@ public partial class Student
     public bool? OrphanhoodDocument { get; set; }
 
     public int? IdOrphanhoodDocumentImg { get; set; }
-
-    public static int Position { get; set; } = 1;
+    public string? Invalid { get; set; }
+    public string? Sirota { get; set;}
 }

@@ -39,9 +39,9 @@
                         <GridViewColumn Header="Возраст" DisplayMemberBinding ="{Binding Age, UpdateSourceTrigger=PropertyChanged}"/>
                         <GridViewColumn Header="Пол" DisplayMemberBinding ="{Binding Gender, UpdateSourceTrigger=PropertyChanged}"/>
                         <GridViewColumn Header="Ср.балл Аттестата" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Attestat}"/>
-                        <GridViewColumn Header="Справка об Инвалидности" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Admission}"/>
-                        <GridViewColumn Header="Справка об Сиротстве" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Admission}"/>
-                        <GridViewColumn Header="Специальность" DisplayMemberBinding ="{Binding Admission}"/>
+                        <GridViewColumn Header="Справка об Инвалидности" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Invalid}"/>
+                        <GridViewColumn Header="Справка об Сиротстве" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Sirota}"/>
+                        <GridViewColumn Header="Специальность" DisplayMemberBinding ="{Binding}"/>
                         <GridViewColumn Header="Зачислен" DisplayMemberBinding ="{Binding Admission}"/>
                     </GridView>
                 </ListView.View>
