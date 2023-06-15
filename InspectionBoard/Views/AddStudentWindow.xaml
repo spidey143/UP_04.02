@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:InspectionBoard.Views" 
         xmlns:viewmodels="clr-namespace:InspectionBoard.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddStudentVM}"
         mc:Ignorable="d"
-        Title="AddStudentWindow" Height="473" Width="800">
+        Title="AddStudentWindow"  Height="480" Width="830"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -111,7 +112,7 @@
         <Label  x:Name="Year_of_admission" Grid.Column="5" Content="" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="65"/>
 
 
-        <Button Content="Добавить" Grid.Row="11" Width="70" Margin="30,22,0,0" Grid.Column="5" Command="{Binding AddStudent}"  Click="Button_Cancel_Click"/>
-        <Button Content="Отмена" Grid.Row="11" Grid.Column="6" Margin="15,22,15,-11" Width="70" Height="25" Click="Button_Cancel_Click"/>
+        <Button Content="Добавить" Grid.Row="11" Height="30" Width="95" Margin="109,5,31,17" Grid.Column="4" Command="{Binding AddStudent}"  Click="Button_Cancel_Click" Grid.ColumnSpan="2"/>
+        <Button Content="Отмена" Grid.Row="11" Grid.Column="5" Margin="97,5,8,17" Height="30" Width="95" Click="Button_Cancel_Click" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>

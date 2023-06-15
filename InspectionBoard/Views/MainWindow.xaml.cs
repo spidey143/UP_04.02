@@ -1,5 +1,8 @@
-﻿using InspectionBoard.Models;
+﻿using InspectionBoard.Infrastructure;
+using InspectionBoard.Models;
 using InspectionBoard.ViewModels;
+using InspectionBoard.Reports;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,9 +48,16 @@ namespace InspectionBoard.Views
             Show();
         }
 
-        private void GridViewColumn_SourceUpdated(object sender, DataTransferEventArgs e)
+        private void Button_Save_Excel(object sender, RoutedEventArgs e)
         {
+            using (InspectionBoardContext context = new InspectionBoardContext())
+            {
+                DbSet<Student> Students = context.Students;
 
+                SaveExcel saveExcel = new SaveExcel(Students);
+            }
         }
+
+      
     }
 }

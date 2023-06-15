@@ -6,13 +6,14 @@
         xmlns:vm="clr-namespace:InspectionBoard.ViewModels"
         xmlns:local="clr-namespace:InspectionBoard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1022">
+        Title="MainWindow" Height="450" Width="1022"
+        WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
         <vm:AddStudentVM/>
     </Window.DataContext>
 
-    <Grid RenderTransformOrigin="0.497,0.628">
+    <Grid RenderTransformOrigin="0.497,0.628" Margin="0,0,0,-16">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500*"/>
         </Grid.ColumnDefinitions>
@@ -20,12 +21,12 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row ="1" Margin="10,159,10,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Content="Добавить" Margin="10" Click="Button_Click" />
-            <Button Content="Изменить" Margin="10" Click="Button_Click_2"/>
-            <Button Content="Удалить" Margin="10" Command="{Binding DeleteStudent}"/>
-            <Button Content="Выгрузка Excel" Margin="10"/>
-            <Button Content="Помощь" Margin="10"/>
+        <StackPanel Orientation="Horizontal" Grid.Row ="1" Margin="0,149,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Button Content="Добавить" Margin="10" Click="Button_Click" Height="30" Width="95"/>
+            <Button Content="Изменить" Margin="10" Click="Button_Click_2" Height="30" Width="95"/>
+            <Button Content="Удалить" Margin="10" Command="{Binding DeleteStudent}" Height="30" Width="95"/>
+            <Button Content="Выгрузка Excel" Margin="10" Click="Button_Save_Excel" Height="30" Width="95"/>
+            <Button Content="Помощь" Margin="10" Height="30" Width="95"/>
         </StackPanel>
         <StackPanel >
             <TextBlock TextAlignment="Center">Список студентов</TextBlock>
