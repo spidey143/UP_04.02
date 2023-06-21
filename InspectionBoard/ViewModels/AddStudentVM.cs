@@ -36,15 +36,16 @@ namespace InspectionBoard.ViewModels
         public static string EducationMethod { get; set; }
         public static string Nationality { get; set; }
         public static string OtherNationality { get; set; }
-        
 
 
+        public static string newSnils { get; set; }
         public static string newInvalid { get; set; }
         public static string newSirota { get; set; }
         public static string newAdmission { get; set; }
         public static string newGender { get; set; }
         public static string newEdumethod { get; set; }
         public static string newSpecial { get; set; }
+        public static string newNation { get; set; }
 
 
 
@@ -56,7 +57,7 @@ namespace InspectionBoard.ViewModels
                 return addStudent ?? new RelayCommand(obj =>
                 {
                     DataStudent.CreateStudent(SurName, Name, Date, TotalAge, Patronymic, 
-                        Gender, SAttestat, Admission, Invalid, Sirota, Snils, Speciality, EducationMethod);
+                        Gender, SAttestat, Admission, Invalid, Sirota, Snils, Speciality, EducationMethod, Nationality);
                     UpdateAllStudentsView();
                 }
                 );
@@ -85,7 +86,7 @@ namespace InspectionBoard.ViewModels
             {
                 return updateStudent ?? new RelayCommand(obj =>
                 {
-                    DataStudent.UpdateStudent(SelectedStudent, newGender, newInvalid, newSirota, newAdmission, newEdumethod, newSpecial);
+                    DataStudent.UpdateStudent(SelectedStudent, newGender, newInvalid, newSirota, newAdmission, newEdumethod, newSpecial, newNation, newSnils);
                     UpdateAllStudentsView();
                 }
                 );

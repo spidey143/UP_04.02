@@ -28,26 +28,31 @@
             <Button Content="Выгрузка Excel" Margin="10" Click="Button_Save_Excel" Height="30" Width="95"/>
             <Button Content="Помощь" Margin="10" Height="30" Width="95"/>
         </StackPanel>
-        <StackPanel >
+        <StackPanel Margin="0,0,0,112" Grid.RowSpan="2" >
             <TextBlock TextAlignment="Center">Список студентов</TextBlock>
-            <ListView x:Name="ViewAllStudents" Height="333" ItemsSource="{Binding AllStudents, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedStudent}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="№" DisplayMemberBinding="{Binding IdStudent}"/>
-                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding FirstName}"/>
-                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding LastName}"/>
-                        <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronymic}"/>
-                        <GridViewColumn Header="Возраст" DisplayMemberBinding ="{Binding Age, UpdateSourceTrigger=PropertyChanged}"/>
-                        <GridViewColumn Header="Пол" DisplayMemberBinding ="{Binding Gender, UpdateSourceTrigger=PropertyChanged}"/>
-                        <GridViewColumn Header="Ср.балл Аттестата" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Attestat}"/>
-                        <GridViewColumn Header="Справка об Инвалидности" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Invalid}"/>
-                        <GridViewColumn Header="Справка об Сиротстве" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Sirota}"/>
-                        <GridViewColumn Header="Специальность" DisplayMemberBinding ="{Binding Speciality}"/>
-                        <GridViewColumn Header="Метод обучения" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding EducationalMethod}"/>
-                        <GridViewColumn Header="Зачислен" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Admission}"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
+
+                <ListView x:Name="ViewAllStudents" Height="350" ItemsSource="{Binding AllStudents, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedStudent}" Width="1132">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="№" DisplayMemberBinding="{Binding IdStudent}"/>
+                            <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding FirstName}"/>
+                            <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding LastName}"/>
+                            <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronymic}"/>
+                            <GridViewColumn Header="Возраст" DisplayMemberBinding ="{Binding Age, UpdateSourceTrigger=PropertyChanged}"/>
+                            <GridViewColumn Header="Пол" DisplayMemberBinding ="{Binding Gender, UpdateSourceTrigger=PropertyChanged}"/>
+                            <GridViewColumn Header="Ср.балл Аттестата" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Attestat}"/>
+                            <GridViewColumn Header="Справка об Инвалидности" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Invalid}"/>
+                            <GridViewColumn Header="Справка об Сиротстве" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Sirota}"/>
+                            <GridViewColumn Header="Специальность" DisplayMemberBinding ="{Binding Speciality}"/>
+                            <GridViewColumn Header="Метод обучения" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding EducationalMethod}"/>
+                            <GridViewColumn Header="Зачислен" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Admission}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </ScrollViewer>
+
         </StackPanel>
     </Grid>
 </Window>

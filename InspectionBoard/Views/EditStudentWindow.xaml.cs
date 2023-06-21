@@ -46,7 +46,15 @@ namespace InspectionBoard.Views
 
             EducationMethod.ItemsSource = (new string[] {"Бюджет", "По договору об оказании платных услуг" });
             EducationMethod_Checked(AddStudentVM.SelectedStudent);
+
+            Countries.ItemsSource = (new string[]{
+                "РФ", "Украина", "Беларусь", "Казахстан",
+                "Армения", "Азербайджан", "Грузия", "Молдова",
+                "Таджикистан", "Туркменистан", "Узбекистан", "Киргизия", "Другое..."});
+            Countries_Checked(AddStudentVM.SelectedStudent);
         }
+
+        #region работа с фотками
         private void Download_Photo_Disabled_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -85,6 +93,7 @@ namespace InspectionBoard.Views
                 Photo_Attestat.Text = fileName;
             }
         }
+        #endregion
 
         #region Команда для подсчета лет
         private void DateOfBirth_TextChanged(object sender, TextChangedEventArgs e)
@@ -240,6 +249,82 @@ namespace InspectionBoard.Views
         private void EducationMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             AddStudentVM.newEdumethod = Convert.ToString(EducationMethod.SelectedItem.ToString());
+        }
+
+
+        public void Countries_Checked(Student student)
+        {
+            switch (student.Nationality)
+            {
+
+                //"РФ", "Украина", "Беларусь", "Казахстан",
+                //"Армения", "Азербайджан", "Грузия", "Молдова",
+                //"Таджикистан", "Туркменистан", "Узбекистан", "Киргизия", "Другое..."
+                case "РФ":
+                    Countries.SelectedItem = "РФ";
+                    break;
+                case "Украина":
+                    Countries.SelectedItem = "Украина";
+                    break;
+                case "Беларусь":
+                    Countries.SelectedItem = "Беларусь";
+                    break;
+                case "Казахстан":
+                    Countries.SelectedItem = "Казахстан";
+                    break;
+                case "Армения":
+                    Countries.SelectedItem = "Армения";
+                    break;
+                case "Азербайджан":
+                    Countries.SelectedItem = "Азербайджан";
+                    break;
+                case "Грузия":
+                    Countries.SelectedItem = "Грузия";
+                    break;
+                case "Молдова":
+                    Countries.SelectedItem = "Молдова";
+                    break;
+                case "Таджикистан":
+                    Countries.SelectedItem = "Таджикистан";
+                    break;
+                case "Туркменистан":
+                    Countries.SelectedItem = "Туркменистан";
+                    break;
+                case "Узбекистан":
+                    Countries.SelectedItem = "Узбекистан";
+                    break;
+                case "Киргизия":
+                    Countries.SelectedItem = "Киргизия";
+                    break;
+                default:
+                    student.Speciality = null;
+                    break;
+            }
+
+        }
+
+        private void Countries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Convert.ToString(Countries.SelectedItem.ToString()).Contains("Другое"))
+            {
+                OtherNation.Visibility = Visibility.Visible;
+                AddStudentVM.newNation = OtherNation.Text;
+            }
+            else
+            {
+                OtherNation.Visibility = Visibility.Hidden;
+                AddStudentVM.newNation = Convert.ToString(Countries.SelectedItem.ToString());
+            }
+        }
+
+        private void Update_Snils(Student student)
+        {
+            AddStudentVM.newSnils = Snils.Text;
+        }
+
+        private void Snils_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Update_Snils(AddStudentVM.SelectedStudent);
         }
     } 
 }

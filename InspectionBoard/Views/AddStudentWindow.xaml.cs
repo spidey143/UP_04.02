@@ -1,4 +1,5 @@
-﻿using InspectionBoard.Models.Data;
+﻿using InspectionBoard.Models;
+using InspectionBoard.Models.Data;
 using InspectionBoard.ViewModels;
 using Microsoft.Win32;
 using System;
@@ -173,11 +174,7 @@ namespace InspectionBoard.Views
 
         private void Countries_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Convert.ToString(Countries.SelectedItem.ToString()).Contains("Другое"))
-            {
-                Nation.Visibility = Visibility.Visible;
-                AddStudentVM.Nationality = Nation.Text;
-            }
+            if (Convert.ToString(Countries.SelectedItem.ToString()).Contains("Другое")) Nation.Visibility = Visibility.Visible;
             else
             {
                 Nation.Visibility = Visibility.Hidden;

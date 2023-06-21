@@ -54,7 +54,7 @@
         <TextBox  x:Name="Age" Grid.Column="3" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="50" Text="{Binding TotalAge, UpdateSourceTrigger=PropertyChanged}" Height="16" Margin="10,0,0,0"/>
 
         <Label Grid.Row="5" Grid.Column="0" Content="Гражданство:" Margin="5" HorizontalContentAlignment='Right'/>
-        <ComboBox x:Name ="Countries"  Grid.Row="5" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectionChanged="Countries_SelectionChanged"/>
+        <ComboBox x:Name ="Countries" Grid.Row="5" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectionChanged="Countries_SelectionChanged"/>
 
         <Label Grid.Row="6" Grid.Column="0" Content="Место проживания:" Margin="5" HorizontalContentAlignment='Right'/>
         <TextBox Grid.Row="6" Grid.Column="1" Margin="5" VerticalAlignment="Center"/>
