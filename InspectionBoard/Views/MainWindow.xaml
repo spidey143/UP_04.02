@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:InspectionBoard.ViewModels"
         xmlns:local="clr-namespace:InspectionBoard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1022"
+        Title="MainWindow" Height="450" Width="1142"
         WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
@@ -42,8 +42,9 @@
                         <GridViewColumn Header="Ср.балл Аттестата" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Attestat}"/>
                         <GridViewColumn Header="Справка об Инвалидности" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Invalid}"/>
                         <GridViewColumn Header="Справка об Сиротстве" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Sirota}"/>
-                        <GridViewColumn Header="Специальность" DisplayMemberBinding ="{Binding}"/>
-                        <GridViewColumn Header="Зачислен" DisplayMemberBinding ="{Binding Admission}"/>
+                        <GridViewColumn Header="Специальность" DisplayMemberBinding ="{Binding Speciality}"/>
+                        <GridViewColumn Header="Метод обучения" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding EducationalMethod}"/>
+                        <GridViewColumn Header="Зачислен" HeaderStringFormat="Center" DisplayMemberBinding ="{Binding Admission}"/>
                     </GridView>
                 </ListView.View>
             </ListView>

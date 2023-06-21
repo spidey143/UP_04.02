@@ -3,6 +3,7 @@ using InspectionBoard.ViewModels;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,22 @@ namespace InspectionBoard.Views
         {
             InitializeComponent();
             DataContext = new AddStudentVM();
+            Special.ItemsSource = (new string[]
+        {
+            "07.02.01 «Архитектура»",
+            "08.02.01 «Строительство и эксплуатация зданий и сооружений»",
+            "09.02.03 «Программирование в компьютерных системах»",
+            "09.02.07 «Информационные системы и программирование»",
+            "11.02.14 «Электронные приборы и устройства»",
+            "21.02.09 «Гидрогеология и инженерная геология»",
+            "38.02.01 «Экономика и бухгалтерский отчет (по отраслям)»",
+            "11.02.02 «Техническое обслуживание и ремонт радиоэлектронной техники (по отраслям)»"
+        });
+            EducationMethod.ItemsSource = (new string[] { "Бюджет", "По договору об оказании платных услуг" });
+            Countries.ItemsSource = (new string[]{
+                "РФ", "Украина", "Беларусь", "Казахстан",
+                "Армения", "Азербайджан", "Грузия", "Молдова",
+                "Таджикистан", "Туркменистан", "Узбекистан", "Киргизия", "Другое..."});
         }
 
         #region Команды для загрузки фото
@@ -143,6 +160,29 @@ namespace InspectionBoard.Views
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
             AddStudentVM.Gender = "женский";
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            AddStudentVM.Speciality = Convert.ToString(Special.SelectedItem.ToString());
+        }
+
+        private void EducationMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AddStudentVM.EducationMethod = Convert.ToString(EducationMethod.SelectedItem.ToString());
+        }
+
+        private void Countries_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Convert.ToString(Countries.SelectedItem.ToString()).Contains("Другое"))
+            {
+                Nation.Visibility = Visibility.Visible;
+                AddStudentVM.Nationality = Nation.Text;
+            }
+            else
+            {
+                Nation.Visibility = Visibility.Hidden;
+                AddStudentVM.Nationality = Convert.ToString(Countries.SelectedItem.ToString());
+            }
         }
     }
 }

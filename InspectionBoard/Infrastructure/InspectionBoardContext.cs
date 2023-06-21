@@ -16,39 +16,13 @@ public partial class InspectionBoardContext : DbContext
     {
     }
 
-    public virtual DbSet<OrphanhoodDocument> OrphanhoodDocuments { get; set; }
-
-    public virtual DbSet<Speciality> Specialities { get; set; }
-
     public virtual DbSet<Student> Students { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-OIGDILO;Database=InspectionBoard;Trusted_Connection=True;TrustServerCertificate=Yes");
+        => optionsBuilder.UseSqlServer("Server=DANIIL;Database=InspectionBoard;Trusted_Connection=True;TrustServerCertificate=Yes");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
-        modelBuilder.Entity<OrphanhoodDocument>(entity =>
-        {
-            entity.HasKey(e => e.IdOrphanhoodDocumentImg);
-
-            entity.ToTable("OrphanhoodDocument");
-
-            entity.Property(e => e.IdOrphanhoodDocumentImg).HasColumnName("id_orphanhood_document_img");
-            entity.Property(e => e.OrphanhoodDocumentImg).HasColumnName("orphanhood_document_img");
-        });
-
-        modelBuilder.Entity<Speciality>(entity =>
-        {
-            entity.HasKey(e => e.IdSpeciality);
-
-            entity.ToTable("Speciality");
-
-            entity.Property(e => e.IdSpeciality).HasColumnName("id_speciality");
-            entity.Property(e => e.Name)
-                .HasMaxLength(50)
-                .HasColumnName("name");
-        });
 
         modelBuilder.Entity<Student>(entity =>
         {
@@ -82,23 +56,19 @@ public partial class InspectionBoardContext : DbContext
             entity.Property(e => e.GradePointAverage)
                 .HasMaxLength(50)
                 .HasColumnName("grade_point_average");
-            entity.Property(e => e.IdAdmissionImg).HasColumnName("id_admission_img");
-            entity.Property(e => e.IdOrphanhoodDocumentImg).HasColumnName("id_orphanhood_document_img");
-            entity.Property(e => e.IdPlaceOfResidence).HasColumnName("id_place_of_residence");
-            entity.Property(e => e.IdSpeciality).HasColumnName("id_speciality");
+            entity.Property(e => e.AdmissionImg).HasColumnName("admission_img");
+            entity.Property(e => e.SirotaImg).HasColumnName("sirota_img");
+            entity.Property(e => e.InvalidImg).HasColumnName("invalid_img");
+            entity.Property(e => e.PlaceOfResidence).HasColumnName("place_of_residence");
+            entity.Property(e => e.Speciality).HasColumnName("speciality");
             entity.Property(e => e.LastName)
                 .HasMaxLength(50)
                 .HasColumnName("last_name");
             entity.Property(e => e.Nationality)
                 .HasMaxLength(50)
                 .HasColumnName("nationality");
-            entity.Property(e => e.OrphanhoodDocument).HasColumnName("orphanhood_document");
-            entity.Property(e => e.Patronymic)
-                .HasMaxLength(50)
-                .HasColumnName("patronymic");
-            entity.Property(e => e.Snils)
-                .HasMaxLength(50)
-                .HasColumnName("snils");
+            entity.Property(e => e.Patronymic).HasMaxLength(50).HasColumnName("patronymic");
+            entity.Property(e => e.Snils) .HasMaxLength(50).HasColumnName("snils");
         });
 
         OnModelCreatingPartial(modelBuilder);

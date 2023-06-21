@@ -27,6 +27,25 @@ namespace InspectionBoard.Views
             InitializeComponent();
             DataContext = new AddStudentVM();
             Gender_Check(AddStudentVM.SelectedStudent);
+            Invalid_Check(AddStudentVM.SelectedStudent);
+            Sirota_Check(AddStudentVM.SelectedStudent);
+            Admission_Check(AddStudentVM.SelectedStudent);
+
+            Specials.ItemsSource = (new string[]
+        {
+            "07.02.01 «Архитектура»",
+            "08.02.01 «Строительство и эксплуатация зданий и сооружений»",
+            "09.02.03 «Программирование в компьютерных системах»",
+            "09.02.07 «Информационные системы и программирование»",
+            "11.02.14 «Электронные приборы и устройства»",
+            "21.02.09 «Гидрогеология и инженерная геология»",
+            "38.02.01 «Экономика и бухгалтерский отчет (по отраслям)»",
+            "11.02.02 «Техническое обслуживание и ремонт радиоэлектронной техники (по отраслям)»"
+        });
+            Special_Checked(AddStudentVM.SelectedStudent);
+
+            EducationMethod.ItemsSource = (new string[] {"Бюджет", "По договору об оказании платных услуг" });
+            EducationMethod_Checked(AddStudentVM.SelectedStudent);
         }
         private void Download_Photo_Disabled_Click(object sender, RoutedEventArgs e)
         {
@@ -92,33 +111,37 @@ namespace InspectionBoard.Views
         {
             Photo_Disabled.Visibility = Visibility.Visible;
             Button_Download_Photo_Disabled.Visibility = Visibility.Visible;
+            AddStudentVM.newInvalid = "да";
         }
         private void radio_button_no1_Checked(object sender, RoutedEventArgs e)
         {
             Photo_Disabled.Visibility = Visibility.Hidden;
             Button_Download_Photo_Disabled.Visibility = Visibility.Hidden;
+            AddStudentVM.newInvalid = "нет";
         }
 
         private void radio_button_yes2_Checked(object sender, RoutedEventArgs e)
         {
             Photo_Orphanage.Visibility = Visibility.Visible;
             Button_Download_Photo_Orphanage.Visibility = Visibility.Visible;
+            AddStudentVM.newSirota = "да";
         }
         private void radio_button_no2_Checked(object sender, RoutedEventArgs e)
         {
             Photo_Orphanage.Visibility = Visibility.Hidden;
             Button_Download_Photo_Orphanage.Visibility = Visibility.Hidden;
+            AddStudentVM.newSirota = "нет";
         }
 
         private void radio_button_yes3_Checked(object sender, RoutedEventArgs e)
         {
-            AddStudentVM.Admission = "да";
+            AddStudentVM.newAdmission = "да";
             Year_of_admission.Content = DateTime.Now.Year + " год";
         }
 
         private void radio_button_no3_Checked(object sender, RoutedEventArgs e)
         {
-            AddStudentVM.Admission = "нет";
+            AddStudentVM.newAdmission = "нет";
             Year_of_admission.Content = "";
         }
 
@@ -142,6 +165,25 @@ namespace InspectionBoard.Views
             }
         }
 
+        public void Admission_Check(Student student)
+        {
+            if (student.Admission == "да") radio_button_yes3.IsChecked = true;
+            else radio_button_no3.IsChecked = true;
+        }
+
+        public void Invalid_Check(Student student)
+        {
+            if (student.Invalid == "да") radio_button_yes1.IsChecked = true;
+            else radio_button_no1.IsChecked = true;
+        }
+
+        public void Sirota_Check(Student student)
+        {
+            if (student.Sirota == "да") radio_button_yes2.IsChecked = true;
+            else radio_button_no2.IsChecked = true;
+        }
+
+
         private void Man_Checked(object sender, RoutedEventArgs e)
         {
             AddStudentVM.newGender = "мужской";
@@ -151,5 +193,55 @@ namespace InspectionBoard.Views
         {
             AddStudentVM.newGender = "женский";
         }
-    }
+
+
+        public void Special_Checked(Student student)
+        {
+
+
+
+            switch (student.Speciality)
+            {
+                case "07.02.01 «Архитектура»": 
+                     Specials.SelectedItem = "07.02.01 «Архитектура»";
+                    break;
+                case "08.02.01 «Строительство и эксплуатация зданий и сооружений»":
+                    Specials.SelectedItem = "08.02.01 «Строительство и эксплуатация зданий и сооружений»";
+                    break;
+                default:
+                    student.Speciality = null; 
+                    break;
+            }
+
+        }
+
+        public void EducationMethod_Checked(Student student)
+        {
+            switch (student.EducationalMethod)
+            {
+                case "Бюджет":
+                    EducationMethod.SelectedItem = "Бюджет";
+                    break;
+                case "По договору об оказании платных услуг":
+                    EducationMethod.SelectedItem = "По договору об оказании платных услуг";
+                    break;
+                default:
+                    student.Speciality = null;
+                    break;
+            }
+
+        }
+
+        private void Specials_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AddStudentVM.newSpecial = Convert.ToString(Specials.SelectedItem.ToString());
+        }
+
+        private void EducationMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AddStudentVM.newEdumethod = Convert.ToString(EducationMethod.SelectedItem.ToString());
+        }
+    } 
 }
+          
+           

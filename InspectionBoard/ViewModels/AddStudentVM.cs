@@ -25,15 +25,27 @@ namespace InspectionBoard.ViewModels
         public string Date { get; set; }
         public string TotalAge { get; set; }
         public string Patronymic { get; set; }
+        public string Snils { get; set; }
         public static Student SelectedStudent { get; set; }
-
-
         public static string Gender { get; set; }
         public static string SAttestat { get; set; }
         public static string Admission { get; set; }
-        public static string newGender { get; set; }
+        public static string Speciality { get; set; }
         public static string Invalid { get; set; }
         public static string Sirota { get; set; }
+        public static string EducationMethod { get; set; }
+        public static string Nationality { get; set; }
+        public static string OtherNationality { get; set; }
+        
+
+
+        public static string newInvalid { get; set; }
+        public static string newSirota { get; set; }
+        public static string newAdmission { get; set; }
+        public static string newGender { get; set; }
+        public static string newEdumethod { get; set; }
+        public static string newSpecial { get; set; }
+
 
 
         private RelayCommand addStudent;
@@ -43,7 +55,8 @@ namespace InspectionBoard.ViewModels
             {
                 return addStudent ?? new RelayCommand(obj =>
                 {
-                    DataStudent.CreateStudent(SurName, Name, Date, TotalAge, Patronymic, Gender, SAttestat, Admission, Invalid, Sirota);
+                    DataStudent.CreateStudent(SurName, Name, Date, TotalAge, Patronymic, 
+                        Gender, SAttestat, Admission, Invalid, Sirota, Snils, Speciality, EducationMethod);
                     UpdateAllStudentsView();
                 }
                 );
@@ -72,7 +85,7 @@ namespace InspectionBoard.ViewModels
             {
                 return updateStudent ?? new RelayCommand(obj =>
                 {
-                    DataStudent.UpdateStudent(SelectedStudent, newGender);
+                    DataStudent.UpdateStudent(SelectedStudent, newGender, newInvalid, newSirota, newAdmission, newEdumethod, newSpecial);
                     UpdateAllStudentsView();
                 }
                 );
@@ -97,6 +110,10 @@ namespace InspectionBoard.ViewModels
             Gender = null;
             Patronymic = null;
         }
+
+        private string nationality;
+
+        
 
     }
 }
