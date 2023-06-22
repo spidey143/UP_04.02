@@ -1,10 +1,14 @@
-﻿using InspectionBoard.Models;
+﻿using DocumentFormat.OpenXml.Vml;
+using InspectionBoard.Models;
 using InspectionBoard.Models.Data;
 using InspectionBoard.ViewModels;
 using Microsoft.Win32;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,7 +51,7 @@ namespace InspectionBoard.Views
         }
 
         #region Команды для загрузки фото
-        private void Download_Photo_Disabled_Click(object sender, RoutedEventArgs e)
+        private void Download_Invalid_Img_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "(*.PNG;*.JPG)|*.PNG;*.JPG";
@@ -56,11 +60,14 @@ namespace InspectionBoard.Views
             {
                 string filePath = openFileDialog.FileName;
                 string fileName = System.IO.Path.GetFileName(filePath);
-                Photo_Disabled.Text = fileName;
+                string fileBytes = File.ReadAllText(filePath);
+                Invalid_Img.Text = fileName;
+                Invalid_Img_Bytes.Text = fileBytes;
             }
         }
 
-        private void Download_Photo_Orphanage_Click(object sender, RoutedEventArgs e)
+        
+        private void Download_Sirota_Img_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "(*.PNG;*.JPG)|*.PNG;*.JPG";
@@ -69,9 +76,23 @@ namespace InspectionBoard.Views
             {
                 string filePath = openFileDialog.FileName;
                 string fileName = System.IO.Path.GetFileName(filePath);
-                Photo_Orphanage.Text = fileName;
+                string fileBytes = File.ReadAllText(filePath);
+                Sirota_Img.Text = fileName;
+                Sirota_Img_Bytes.Text= fileBytes;
             }
         }
+
+        private void Download_Sirota_Img_Db_Click(object sender, RoutedEventArgs e)
+        {
+            AddStudentVM.SirotaImg = System.Text.Encoding.UTF8.GetBytes(Sirota_Img_Bytes.Text);
+        }
+
+        private void Download_Invalid_Img_Db_Click(object sender, RoutedEventArgs e)
+        {
+            AddStudentVM.InvalidImg = System.Text.Encoding.UTF8.GetBytes(Invalid_Img_Bytes.Text);
+        }
+
+
 
         private void Download_Attestat_Click(object sender, RoutedEventArgs e)
         {
@@ -110,27 +131,31 @@ namespace InspectionBoard.Views
         #region Команды для radiobutton
         private void radio_button_yes1_Checked(object sender, RoutedEventArgs e)
         {
-            Photo_Disabled.Visibility = Visibility.Visible;
-            Button_Download_Photo_Disabled.Visibility = Visibility.Visible;
+            Invalid_Img.Visibility = Visibility.Visible;
+            Button_Download_Invalid_Img.Visibility = Visibility.Visible;
+            Button_Download_Invalid_Img_Db.Visibility = Visibility.Visible;
             AddStudentVM.Invalid = "да";
         }
         private void radio_button_no1_Checked(object sender, RoutedEventArgs e)
         {
-            Photo_Disabled.Visibility = Visibility.Hidden;
-            Button_Download_Photo_Disabled.Visibility = Visibility.Hidden;
+            Invalid_Img.Visibility = Visibility.Hidden;
+            Button_Download_Invalid_Img.Visibility = Visibility.Hidden;
+            Button_Download_Invalid_Img_Db.Visibility = Visibility.Hidden;
             AddStudentVM.Invalid = "нет";
         }
 
         private void radio_button_yes2_Checked(object sender, RoutedEventArgs e)
         {
-            Photo_Orphanage.Visibility = Visibility.Visible;
-            Button_Download_Photo_Orphanage.Visibility = Visibility.Visible;
+            Sirota_Img.Visibility = Visibility.Visible;
+            Button_Download_Sirota_Img.Visibility = Visibility.Visible;
+            Button_Download_Sirota_Img_Db.Visibility = Visibility.Visible;
             AddStudentVM.Sirota = "да";
         }
         private void radio_button_no2_Checked(object sender, RoutedEventArgs e)
         {
-            Photo_Orphanage.Visibility = Visibility.Hidden;
-            Button_Download_Photo_Orphanage.Visibility = Visibility.Hidden;
+            Sirota_Img.Visibility = Visibility.Hidden;
+            Button_Download_Sirota_Img.Visibility = Visibility.Hidden;
+            Button_Download_Sirota_Img_Db.Visibility = Visibility.Hidden;
             AddStudentVM.Sirota = "нет";
         }
 
@@ -148,10 +173,16 @@ namespace InspectionBoard.Views
 
         #endregion
 
+        private void Button_Add_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+
+        }
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
         }
+
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {

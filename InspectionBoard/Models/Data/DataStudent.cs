@@ -16,7 +16,7 @@ namespace InspectionBoard.Models.Data
             string firstName, string lastName, 
             string date_of_birth, string age, string patronymic, 
             string gender, string attestat, string admission,
-            string invalid, string sirota, string snils, string special, string educationMethod, string nation)
+            string invalid, string sirota, string snils, string special, string educationMethod, string nation, byte[] sirotaimg, byte[] invalidimg)
         {
             DbConnect.InspectionBoardContext.Add(
                 new Student 
@@ -33,7 +33,9 @@ namespace InspectionBoard.Models.Data
                     Snils = snils,
                     Speciality = special,
                     EducationalMethod = educationMethod,
-                    Nationality = nation
+                    Nationality = nation,
+                    SirotaImg = sirotaimg,
+                    InvalidImg = invalidimg
                 }) ;
             DbConnect.InspectionBoardContext.SaveChanges();
         }

@@ -33,13 +33,13 @@ public partial class Student
 
     public string? Admission { get; set; }
 
-    public int? AdmissionImg { get; set; }
+    public byte[]? AdmissionImg { get; set; }
 
     public int? PlaceOfResidence { get; set; }
 
     public string? Speciality { get; set; }
-    public int? SirotaImg { get; set; }
-    public int? InvalidImg { get; set; }
+    public byte[]? SirotaImg { get; set; }
+    public byte[]? InvalidImg { get; set; }
     public string? Invalid { get; set; }
     public string? Sirota { get; set;}
 }

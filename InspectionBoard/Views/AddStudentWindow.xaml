@@ -76,17 +76,22 @@
         <TextBox Grid.Row="9" Grid.Column="1" Margin="5" VerticalAlignment="Center" Text="{Binding Snils}"/>
 
         <Label Grid.Row="10" Grid.Column="0" Content="Справка об инвалидности:" Margin="5" HorizontalContentAlignment='Right'/>
-        <TextBox Name="Photo_Disabled" Visibility="Hidden" Grid.Row="10" Grid.Column="2" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="89"/>
+        <TextBox x:Name="Invalid_Img_Bytes" Visibility="Hidden" Grid.Row="10" Grid.Column="4" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="30" Height="20"/>
+        <TextBox x:Name="Invalid_Img" Visibility="Hidden" Grid.Row="10" Grid.Column="2" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="89" Height="20"/>
         <RadioButton Name="radio_button_yes1" GroupName="Group3" Grid.Column="1" Content="Да" HorizontalAlignment="Left" Grid.Row="10" VerticalAlignment="Center"  Margin="5,0,0,0" Checked="radio_button_yes1_Checked"/>
         <RadioButton Name="radio_button_no1" GroupName="Group3" Grid.Column="1" Content="Нет" HorizontalAlignment="Right" Grid.Row="10" VerticalAlignment="Center" Margin="0,0,5,0" Checked="radio_button_no1_Checked"/>
 
         <Label Grid.Row="11" Grid.Column="0" Content="Документы о сиротстве:" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox Name="Photo_Orphanage" Visibility="Hidden" Grid.Row="11" Grid.Column="2" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="89"/>
+        <TextBox x:Name="Sirota_Img_Bytes" Visibility="Hidden" Grid.Row="11" Grid.Column="4" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="30" Height="20" />
+        <TextBox x:Name="Sirota_Img" Visibility="Hidden" Grid.Row="11" Grid.Column="2" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="89" Height="20"/>
         <RadioButton Name="radio_button_yes2" GroupName="Group4" Grid.Column="1" Content="Да" HorizontalAlignment="Left" Grid.Row="11" VerticalAlignment="Center"  Margin="5,0,0,0" Checked="radio_button_yes2_Checked"/>
         <RadioButton Name="radio_button_no2" GroupName="Group4" Grid.Column="1" Content="Нет" HorizontalAlignment="Right" Grid.Row="11" VerticalAlignment="Center"  Margin="0,0,5,0" Checked="radio_button_no2_Checked"/>
 
-        <Button Name="Button_Download_Photo_Disabled" Grid.Row="10" Visibility="Hidden" Grid.Column="3" Margin="8" Content="Загрузить" Click="Download_Photo_Disabled_Click"/>
-        <Button Name="Button_Download_Photo_Orphanage"  Grid.Row="11" Visibility="Hidden" Grid.Column="3" Margin="8" Content="Загрузить" Click="Download_Photo_Orphanage_Click"/>
+        <Button Name="Button_Download_Invalid_Img" Grid.Row="10" Visibility="Hidden" Grid.Column="3" Margin="5,8,35,8" Content="Загрузить" Click="Download_Invalid_Img_Click" Width="60" Height="20"/>
+        <Button Name="Button_Download_Invalid_Img_Db" Grid.Row="10" Visibility="Hidden" Grid.Column="3" Margin="70,8,80,8" Content="Загрузить в БД" Click="Download_Invalid_Img_Db_Click" Height="20" Grid.ColumnSpan="2"/>
+        <Button Name="Button_Download_Sirota_Img"  Grid.Row="11" Visibility="Hidden" Grid.Column="3" Margin="5,16,35,16" Content="Загрузить" Click="Download_Sirota_Img_Click" Width="60" Height="20"/>
+        <Button Name="Button_Download_Sirota_Img_Db" Grid.Row="11" Visibility="Hidden" Grid.Column="3" Margin="70,16,80,16" Content="Загрузить в БД" Click="Download_Sirota_Img_Db_Click" Height="20" Grid.ColumnSpan="2"/>
+
 
         <Label Grid.Row="0" Grid.Column="4" Content="Специальность:" Margin="5" HorizontalContentAlignment='Right'/>
         <ComboBox x:Name="Special" Grid.Row="0" Grid.Column="5" Margin="5" VerticalAlignment="Center" SelectionChanged="ComboBox_SelectionChanged">
@@ -94,7 +99,7 @@
 
         <Label Grid.Row="1" Grid.Column="4" Content="Аттестат:" Margin="5" HorizontalContentAlignment='Right'/>
         <TextBox Name="Photo_Attestat" Grid.Row="1" Grid.Column="5" Margin="5" VerticalAlignment="Center"/>
-        <Button Grid.Row="1" Grid.Column="6" Margin="8" Content="Загрузить" Click="Download_Attestat_Click"/>
+        <Button Grid.Row="1" Grid.Column="6" Margin="8" Content="Загрузить" Click="Download_Attestat_Click" Width="60" Height="20"/>
 
         <Label Grid.Row="2" Grid.Column="4" Content="Форма образования:" Margin="5" HorizontalContentAlignment='Right'/>
         <ComboBox x:Name="EducationMethod" Grid.Row="2" Grid.Column="5" Margin="5" VerticalAlignment="Center" SelectionChanged="EducationMethod_SelectionChanged">
@@ -108,7 +113,7 @@
         <Label  x:Name="Year_of_admission" Grid.Column="5" Content="" HorizontalAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Width="65"/>
 
 
-        <Button Content="Добавить" Grid.Row="11" Height="30" Width="95" Margin="109,5,31,17" Grid.Column="4" Command="{Binding AddStudent}"  Click="Button_Cancel_Click" Grid.ColumnSpan="2"/>
+        <Button Content="Добавить" Grid.Row="11" Height="30" Width="95" Margin="109,5,31,17" Grid.Column="4" Command="{Binding AddStudent}"  Click="Button_Add_Click" Grid.ColumnSpan="2"/>
         <Button Content="Отмена" Grid.Row="11" Grid.Column="5" Margin="97,5,8,17" Height="30" Width="95" Click="Button_Cancel_Click" Grid.ColumnSpan="2"/>
         <TextBox x:Name="Nation" Grid.Column="2" HorizontalAlignment="Left" Margin="5,10,0,0" Grid.Row="5" TextWrapping="Wrap"  Text="{Binding OtherNationality}"  VerticalAlignment="Top" Width="95" Visibility="Hidden"/>
     </Grid>
