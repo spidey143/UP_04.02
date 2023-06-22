@@ -61,12 +61,12 @@ namespace InspectionBoard.Views
                 string filePath = openFileDialog.FileName;
                 string fileName = System.IO.Path.GetFileName(filePath);
                 string fileBytes = File.ReadAllText(filePath);
-                Invalid_Img.Text = fileName;
+                Invalid_Img.Text = filePath;
                 Invalid_Img_Bytes.Text = fileBytes;
+                AddStudentVM.InvalidImg = Encoding.UTF8.GetBytes(Invalid_Img_Bytes.Text);
             }
         }
 
-        
         private void Download_Sirota_Img_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -77,24 +77,13 @@ namespace InspectionBoard.Views
                 string filePath = openFileDialog.FileName;
                 string fileName = System.IO.Path.GetFileName(filePath);
                 string fileBytes = File.ReadAllText(filePath);
-                Sirota_Img.Text = fileName;
+                Sirota_Img.Text = filePath;
                 Sirota_Img_Bytes.Text= fileBytes;
+                AddStudentVM.SirotaImg = Encoding.UTF8.GetBytes(Sirota_Img_Bytes.Text);
             }
         }
 
-        private void Download_Sirota_Img_Db_Click(object sender, RoutedEventArgs e)
-        {
-            AddStudentVM.SirotaImg = System.Text.Encoding.UTF8.GetBytes(Sirota_Img_Bytes.Text);
-        }
-
-        private void Download_Invalid_Img_Db_Click(object sender, RoutedEventArgs e)
-        {
-            AddStudentVM.InvalidImg = System.Text.Encoding.UTF8.GetBytes(Invalid_Img_Bytes.Text);
-        }
-
-
-
-        private void Download_Attestat_Click(object sender, RoutedEventArgs e)
+        private void Download_Attestat_Img_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "(*.PNG;*.JPG)|*.PNG;*.JPG";
@@ -103,7 +92,11 @@ namespace InspectionBoard.Views
             {
                 string filePath = openFileDialog.FileName;
                 string fileName = System.IO.Path.GetFileName(filePath);
-                Photo_Attestat.Text = fileName;
+                string fileBytes = File.ReadAllText(filePath);
+                Attestat_Img.Text = filePath;
+                Attestat_Img_Bytes.Text = fileBytes;
+                AddStudentVM.AttestatImg = Encoding.UTF8.GetBytes(Attestat_Img_Bytes.Text);
+
             }
         }
         #endregion
@@ -133,30 +126,29 @@ namespace InspectionBoard.Views
         {
             Invalid_Img.Visibility = Visibility.Visible;
             Button_Download_Invalid_Img.Visibility = Visibility.Visible;
-            Button_Download_Invalid_Img_Db.Visibility = Visibility.Visible;
             AddStudentVM.Invalid = "да";
         }
         private void radio_button_no1_Checked(object sender, RoutedEventArgs e)
         {
             Invalid_Img.Visibility = Visibility.Hidden;
             Button_Download_Invalid_Img.Visibility = Visibility.Hidden;
-            Button_Download_Invalid_Img_Db.Visibility = Visibility.Hidden;
             AddStudentVM.Invalid = "нет";
+            AddStudentVM.InvalidImg = null;
+
         }
 
         private void radio_button_yes2_Checked(object sender, RoutedEventArgs e)
         {
             Sirota_Img.Visibility = Visibility.Visible;
             Button_Download_Sirota_Img.Visibility = Visibility.Visible;
-            Button_Download_Sirota_Img_Db.Visibility = Visibility.Visible;
             AddStudentVM.Sirota = "да";
         }
         private void radio_button_no2_Checked(object sender, RoutedEventArgs e)
         {
             Sirota_Img.Visibility = Visibility.Hidden;
             Button_Download_Sirota_Img.Visibility = Visibility.Hidden;
-            Button_Download_Sirota_Img_Db.Visibility = Visibility.Hidden;
             AddStudentVM.Sirota = "нет";
+            AddStudentVM.SirotaImg = null;
         }
 
         private void radio_button_yes3_Checked(object sender, RoutedEventArgs e)

@@ -56,7 +56,7 @@ public partial class InspectionBoardContext : DbContext
             entity.Property(e => e.GradePointAverage)
                 .HasMaxLength(50)
                 .HasColumnName("grade_point_average");
-            entity.Property(e => e.AdmissionImg).HasColumnName("admission_img");
+            entity.Property(e => e.AttestatImg).HasColumnName("attestat_img");
             entity.Property(e => e.SirotaImg).HasColumnName("sirota_img");
             entity.Property(e => e.InvalidImg).HasColumnName("invalid_img");
             entity.Property(e => e.PlaceOfResidence).HasColumnName("place_of_residence");

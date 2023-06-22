@@ -16,7 +16,7 @@ namespace InspectionBoard.Models.Data
             string firstName, string lastName, 
             string date_of_birth, string age, string patronymic, 
             string gender, string attestat, string admission,
-            string invalid, string sirota, string snils, string special, string educationMethod, string nation, byte[] sirotaimg, byte[] invalidimg)
+            string invalid, string sirota, string snils, string special, string educationMethod, string nation, byte[] sirotaimg, byte[] invalidimg, byte[] attestatimg)
         {
             DbConnect.InspectionBoardContext.Add(
                 new Student 
@@ -35,7 +35,8 @@ namespace InspectionBoard.Models.Data
                     EducationalMethod = educationMethod,
                     Nationality = nation,
                     SirotaImg = sirotaimg,
-                    InvalidImg = invalidimg
+                    InvalidImg = invalidimg,
+                    AttestatImg = attestatimg
                 }) ;
             DbConnect.InspectionBoardContext.SaveChanges();
         }
@@ -49,7 +50,7 @@ namespace InspectionBoard.Models.Data
 
         public static void UpdateStudent(
             Student student, string newGender, string newInvalid, string newSirota,
-            string newAdmission, string eduMethod, string special, string nation, string snils)
+            string newAdmission, string eduMethod, string special, string nation, string snils, byte[] newSirotaImg, byte[] newInvalidImg, byte[] newAttestatImg)
         {
             student.Gender = newGender;
             student.Invalid = newInvalid;
@@ -59,6 +60,9 @@ namespace InspectionBoard.Models.Data
             student.Speciality = special;
             student.Admission = newAdmission;
             student.Nationality = nation;
+            student.SirotaImg = newSirotaImg;
+            student.InvalidImg = newInvalidImg;
+            student.AttestatImg = newAttestatImg;
             DbConnect.InspectionBoardContext.SaveChanges();
         }
 

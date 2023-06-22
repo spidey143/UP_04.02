@@ -33,7 +33,7 @@ public partial class Student
 
     public string? Admission { get; set; }
 
-    public byte[]? AdmissionImg { get; set; }
+    public byte[]? AttestatImg { get; set; }
 
     public int? PlaceOfResidence { get; set; }
 
