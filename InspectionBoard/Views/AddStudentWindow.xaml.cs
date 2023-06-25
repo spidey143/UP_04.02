@@ -211,5 +211,19 @@ namespace InspectionBoard.Views
             placeOfRes.ShowDialog();
             Show();
         }
+        private void RadioButton_Checked_3(object sender, RoutedEventArgs e)
+        {
+            AddStudentVM.Education = "9 классов";
+            Education.Visibility = Visibility.Hidden;
+        }
+        private void RadioButton_Checked_5(object sender, RoutedEventArgs e)
+        {
+            AddStudentVM.Education = "11 классов";
+            Education.Visibility = Visibility.Hidden;
+        }
+        private void RadioButton_Checked_4(object sender, RoutedEventArgs e)
+        {
+            Education.Visibility = Visibility.Visible;
+        }
     }
 }

@@ -178,6 +178,7 @@ namespace InspectionBoard.Views
             {
                 Man.IsChecked = true;
             }
+
             if (student.Gender == "женский")
             {
                 Fem.IsChecked = true;
@@ -202,6 +203,12 @@ namespace InspectionBoard.Views
             else radio_button_no2.IsChecked = true;
         }
 
+        public void Education_Check(Student student)
+        {
+            if (student.Education == "9 классов") radiobutton_checked_3.IsChecked = true;
+            else radiobutton_checked_5.IsChecked = true;
+        }
+
 
         private void Man_Checked(object sender, RoutedEventArgs e)
         {
@@ -212,7 +219,6 @@ namespace InspectionBoard.Views
         {
             AddStudentVM.newGender = "женский";
         }
-
 
         public void Special_Checked(Student student)
         {
@@ -340,6 +346,23 @@ namespace InspectionBoard.Views
             PlaceOfRes newplaceOfRes = new PlaceOfRes();
             newplaceOfRes.ShowDialog();
             Show();
+        }
+
+        private void RadioButton_Checked_3(object sender, RoutedEventArgs e)
+        {
+            AddStudentVM.newEducation = "9 классов";
+            Education.Visibility = Visibility.Hidden;
+        }
+        private void RadioButton_Checked_5(object sender, RoutedEventArgs e)
+        {
+            AddStudentVM.newEducation = "11 классов";
+            Education.Visibility = Visibility.Hidden;
+        }
+
+        private void RadioButton_Checked_4(object sender, RoutedEventArgs e)
+        {
+            Education.Visibility = Visibility.Visible;
+
         }
     } 
 }

@@ -61,14 +61,10 @@
         <Button Grid.Row="6" Grid.Column="1" Margin="5,0,5,0" VerticalAlignment="Center" Height="26" Content="Выбрать..." Click="Button_Click"/>
 
         <Label Grid.Row="7" Grid.Column="0" Content="Закончил классов:" Margin="5" HorizontalContentAlignment='Right'/>
-        <RadioButton GroupName="Group2" Grid.Column="1" Content="9" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center"  Margin="5,0,0,0"/>
-        <RadioButton GroupName="Group2" Grid.Column="1" Content="11" HorizontalAlignment="Right" Grid.Row="7" VerticalAlignment="Center" Margin="0,0,5,0"/>
-
-        <Label Grid.Row="7" Grid.Column="2" Content="Уч. заведение:" Margin="5" HorizontalContentAlignment='Right'/>
-        <ComboBox Grid.Row="7" Grid.Column="3" Margin="5" VerticalAlignment="Center">
-            <ComboBoxItem Content="9"/>
-            <ComboBoxItem Content="11"/>
-        </ComboBox>
+        <RadioButton x:Name="radiobutton_checked_3" Grid.Column="1" Content="9" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center"  Margin="5,0,0,0" Checked="RadioButton_Checked_3"/>
+        <RadioButton x:Name="radiobutton_checked_5" Grid.Column="1" Content="11" HorizontalAlignment="Right" Grid.Row="7" VerticalAlignment="Center" Margin="0,0,5,0" Checked="RadioButton_Checked_5"/>
+        <RadioButton  x:Name="radiobutton_checked_4" Grid.Column="2" Content="Уч. заведение:" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="23,0,0,0" Checked="RadioButton_Checked_4"/>
+        <TextBox x:Name="Education" Grid.Row="7" Grid.Column="3" Margin="26,10,54,0" VerticalAlignment="Top" Visibility="Hidden" Text="{Binding newEducation}" Grid.ColumnSpan="2"/>
 
         <Label Grid.Row="8" Grid.Column="0" Content="Средний балл аттестата:" Margin="5" HorizontalContentAlignment='Right' />
         <TextBox Grid.Row="8" Grid.Column="1" Margin="5" VerticalAlignment="Center" Text="{Binding SelectedStudent.Attestat}"/>
