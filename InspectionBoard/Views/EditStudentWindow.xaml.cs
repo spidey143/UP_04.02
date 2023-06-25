@@ -216,9 +216,6 @@ namespace InspectionBoard.Views
 
         public void Special_Checked(Student student)
         {
-
-
-
             switch (student.Speciality)
             {
                 case "07.02.01 «Архитектура»": 
@@ -335,6 +332,14 @@ namespace InspectionBoard.Views
         private void Snils_TextChanged(object sender, TextChangedEventArgs e)
         {
             Update_Snils(AddStudentVM.SelectedStudent);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            PlaceOfRes newplaceOfRes = new PlaceOfRes();
+            newplaceOfRes.ShowDialog();
+            Show();
         }
     } 
 }

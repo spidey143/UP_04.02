@@ -94,7 +94,6 @@ namespace InspectionBoard.Views
                     "Смоленская область",
                     "Тамбовская область", };
 
-
             string[] municipalDistricts = {
                     "Буйский",
                     "Волгореченский",
@@ -143,6 +142,9 @@ namespace InspectionBoard.Views
             if (Stranger.IsChecked == true)
             {
                 Subject.IsEnabled = false;
+                AddStudentVM.PlaceOfRes = "Иностранный гражданин";
+                AddStudentVM.newPlaceOfRes = "Иностранный гражданин";
+
             }
             if (Stranger.IsChecked == true && Subject.SelectedItem != null)
             {
@@ -173,10 +175,35 @@ namespace InspectionBoard.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            AddStudentVM.PlaceOfRes = DataStudent.SetPlaceOfRes(
+            if (Subject.SelectedItem != null && CityComboBox.SelectedItem == null & RaionComboBox.SelectedItem == null)
+            {
+                AddStudentVM.PlaceOfRes = DataStudent.SetPlaceOfRes(
+                Convert.ToString(Subject.SelectedItem.ToString()));
+
+                AddStudentVM.newPlaceOfRes = DataStudent.SetPlaceOfRes(
+                Convert.ToString(Subject.SelectedItem.ToString()));
+            }
+
+            else if (Subject.SelectedItem != null || CityComboBox.SelectedItem != null || RaionComboBox.SelectedItem != null)
+            {
+                AddStudentVM.PlaceOfRes = DataStudent.SetPlaceOfRes(
                 Convert.ToString(Subject.SelectedItem.ToString()),
                 Convert.ToString(CityComboBox.SelectedItem.ToString()),
                 Convert.ToString(RaionComboBox.SelectedItem.ToString()));
+
+                AddStudentVM.newPlaceOfRes = DataStudent.SetPlaceOfRes(
+                Convert.ToString(Subject.SelectedItem.ToString()),
+                Convert.ToString(CityComboBox.SelectedItem.ToString()),
+                Convert.ToString(RaionComboBox.SelectedItem.ToString()));
+            }
+
+            else if (Subject.SelectedItem == null)
+            {
+                AddStudentVM.PlaceOfRes = "Иностранный гражданин";
+                AddStudentVM.newPlaceOfRes = "Иностранный гражданин";
+
+            }
+
             Hide();
         }
     }

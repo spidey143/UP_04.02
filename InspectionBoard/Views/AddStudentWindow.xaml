@@ -35,10 +35,10 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Content="Фамилия:" Margin="5" HorizontalContentAlignment='Right'/>
-        <TextBox x:Name="first_name" Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Center" Text="{Binding SurName}"/>
+        <TextBox x:Name="last_name" Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Center" Text="{Binding SurName}"/>
 
         <Label Grid.Row="1" Grid.Column="0" Content="Имя:" Margin="5" HorizontalContentAlignment='Right'/>
-        <TextBox x:Name="last_name" Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center" Text="{Binding Name}"/>
+        <TextBox x:Name="first_name" Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center" Text="{Binding Name}"/>
 
         <Label Grid.Row="2" Grid.Column="0" Content="Отчество:" Margin="5" HorizontalContentAlignment='Right'/>
         <TextBox Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center" Text="{Binding Patronymic}"/>

@@ -52,7 +52,7 @@ namespace InspectionBoard.Models.Data
 
         public static void UpdateStudent(
             Student student, string newGender, string newInvalid, string newSirota,
-            string newAdmission, string eduMethod, string special, string nation, string snils, byte[] newSirotaImg, byte[] newInvalidImg, byte[] newAttestatImg)
+            string newAdmission, string eduMethod, string special, string nation, string snils, byte[] newSirotaImg, byte[] newInvalidImg, byte[] newAttestatImg, string newPlaceOfRes)
         {
             student.Gender = newGender;
             student.Invalid = newInvalid;
@@ -65,6 +65,9 @@ namespace InspectionBoard.Models.Data
             student.SirotaImg = newSirotaImg;
             student.InvalidImg = newInvalidImg;
             student.AttestatImg = newAttestatImg;
+            student.PlaceOfResidence = newPlaceOfRes;
+
+
             DbConnect.InspectionBoardContext.SaveChanges();
         }
 
