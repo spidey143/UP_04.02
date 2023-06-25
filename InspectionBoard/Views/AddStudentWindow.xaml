@@ -57,7 +57,7 @@
         <ComboBox x:Name ="Countries" Grid.Row="5" Grid.Column="1" Margin="5" VerticalAlignment="Center" SelectionChanged="Countries_SelectionChanged"/>
 
         <Label Grid.Row="6" Grid.Column="0" Content="Место проживания:" Margin="5" HorizontalContentAlignment='Right'/>
-        <TextBox Grid.Row="6" Grid.Column="1" Margin="5" VerticalAlignment="Center"/>
+        <Button Grid.Row="6" Grid.Column="1" Margin="5,0,5,0" VerticalAlignment="Center" Height="26" Content="Выбрать..." Click="Button_Click"/>
 
         <Label Grid.Row="7" Grid.Column="0" Content="Закончил классов:" Margin="5" HorizontalContentAlignment='Right'/>
         <RadioButton GroupName="Group2" Grid.Column="1" Content="9" HorizontalAlignment="Left" Grid.Row="7" VerticalAlignment="Center"  Margin="5,0,0,0"/>

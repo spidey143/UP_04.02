@@ -204,5 +204,12 @@ namespace InspectionBoard.Views
                 AddStudentVM.Nationality = Convert.ToString(Countries.SelectedItem.ToString());
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PlaceOfRes placeOfRes = new PlaceOfRes();
+            placeOfRes.ShowDialog();
+            Show();
+        }
     }
 }

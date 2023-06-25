@@ -35,7 +35,7 @@ public partial class Student
 
     public byte[]? AttestatImg { get; set; }
 
-    public int? PlaceOfResidence { get; set; }
+    public string? PlaceOfResidence { get; set; }
 
     public string? Speciality { get; set; }
     public byte[]? SirotaImg { get; set; }

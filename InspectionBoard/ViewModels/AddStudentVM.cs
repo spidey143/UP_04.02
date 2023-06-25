@@ -52,6 +52,7 @@ namespace InspectionBoard.ViewModels
         public static byte[] newSirotaImg { get; set; }
         public static byte[] newInvalidImg { get; set; }
         public static byte[] newAttestatImg { get; set; }
+        public static string PlaceOfRes { get; set; }
 
 
 
@@ -63,7 +64,8 @@ namespace InspectionBoard.ViewModels
                 return addStudent ?? new RelayCommand(obj =>
                 {
                     DataStudent.CreateStudent(SurName, Name, Date, TotalAge, Patronymic, 
-                        Gender, SAttestat, Admission, Invalid, Sirota, Snils, Speciality, EducationMethod, Nationality, SirotaImg, InvalidImg, AttestatImg);
+                        Gender, SAttestat, Admission, Invalid, Sirota,
+                        Snils, Speciality, EducationMethod, Nationality, SirotaImg, InvalidImg, AttestatImg, PlaceOfRes);
                     UpdateAllStudentsView();
                 }
                 );

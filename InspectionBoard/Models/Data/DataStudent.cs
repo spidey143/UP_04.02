@@ -16,7 +16,8 @@ namespace InspectionBoard.Models.Data
             string firstName, string lastName, 
             string date_of_birth, string age, string patronymic, 
             string gender, string attestat, string admission,
-            string invalid, string sirota, string snils, string special, string educationMethod, string nation, byte[] sirotaimg, byte[] invalidimg, byte[] attestatimg)
+            string invalid, string sirota, string snils, string special, string educationMethod, 
+            string nation, byte[] sirotaimg, byte[] invalidimg, byte[] attestatimg, string place)
         {
             DbConnect.InspectionBoardContext.Add(
                 new Student 
@@ -36,7 +37,8 @@ namespace InspectionBoard.Models.Data
                     Nationality = nation,
                     SirotaImg = sirotaimg,
                     InvalidImg = invalidimg,
-                    AttestatImg = attestatimg
+                    AttestatImg = attestatimg,
+                    PlaceOfResidence = place
                 }) ;
             DbConnect.InspectionBoardContext.SaveChanges();
         }
@@ -71,5 +73,19 @@ namespace InspectionBoard.Models.Data
             return DbConnect.InspectionBoardContext.Students.ToList();
         }
 
+        public static string SetPlaceOfRes(string stranger)
+        {
+            return stranger;
+        }
+
+        public static string SetPlaceOfRes(string subject, string city, string region)
+        {
+            return subject + ", " + "г. " + city + ", " + region + " район";
+        }
+
+        public static string UpdatePlaceOfRes(Student student, string subject, string city, string region)
+        {
+            return subject + ", " + "г. " + city + ", " + region + " район";
+        }
     }
 }
