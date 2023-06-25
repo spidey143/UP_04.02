@@ -14,7 +14,6 @@ public partial class Student
     public string? Age { get; set; }
     public string? Nationality { get; set; }
     public string? Education { get; set; }
-    public string? GradePointAverage { get; set; }
     public string? Snils { get; set; }
     public string? Attestat { get; set; }
     public string? EducationalMethod { get; set; }

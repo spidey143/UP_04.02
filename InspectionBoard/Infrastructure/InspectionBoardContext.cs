@@ -19,7 +19,7 @@ public partial class InspectionBoardContext : DbContext
     public virtual DbSet<Student> Students { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-OIGDILO;Database=InspectionBoard;Trusted_Connection=True;TrustServerCertificate=Yes");
+        => optionsBuilder.UseSqlServer("Server=DANIIL;Database=InspectionBoard;Trusted_Connection=True;TrustServerCertificate=Yes");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -53,9 +53,6 @@ public partial class InspectionBoardContext : DbContext
             entity.Property(e => e.Gender)
                 .HasMaxLength(50)
                 .HasColumnName("gender");
-            entity.Property(e => e.GradePointAverage)
-                .HasMaxLength(50)
-                .HasColumnName("grade_point_average");
             entity.Property(e => e.AttestatImg).HasColumnName("attestat_img");
             entity.Property(e => e.SirotaImg).HasColumnName("sirota_img");
             entity.Property(e => e.InvalidImg).HasColumnName("invalid_img");

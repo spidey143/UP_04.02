@@ -45,7 +45,7 @@ namespace InspectionBoard.Views
         });
             Special_Checked(AddStudentVM.SelectedStudent);
 
-            EducationMethod.ItemsSource = (new string[] {"Бюджет", "По договору об оказании платных услуг" });
+            EducationMethod.ItemsSource = (new string[] { "Бюджет", "По договору об оказании платных услуг" });
             EducationMethod_Checked(AddStudentVM.SelectedStudent);
 
             Countries.ItemsSource = (new string[]{
@@ -53,6 +53,7 @@ namespace InspectionBoard.Views
                 "Армения", "Азербайджан", "Грузия", "Молдова",
                 "Таджикистан", "Туркменистан", "Узбекистан", "Киргизия", "Другое..."});
             Countries_Checked(AddStudentVM.SelectedStudent);
+            Check_Education(AddStudentVM.SelectedStudent);
         }
 
         #region работа с фотками
@@ -224,14 +225,29 @@ namespace InspectionBoard.Views
         {
             switch (student.Speciality)
             {
-                case "07.02.01 «Архитектура»": 
-                     Specials.SelectedItem = "07.02.01 «Архитектура»";
+                case "07.02.01 «Архитектура»":
+                    Specials.SelectedItem = "07.02.01 «Архитектура»";
                     break;
                 case "08.02.01 «Строительство и эксплуатация зданий и сооружений»":
                     Specials.SelectedItem = "08.02.01 «Строительство и эксплуатация зданий и сооружений»";
                     break;
+                case "09.02.03 «Программирование в компьютерных системах»":
+                    Specials.SelectedItem = "09.02.03 «Программирование в компьютерных системах»";
+                    break;
+                case "09.02.07 «Информационные системы и программирование»":
+                    Specials.SelectedItem = "09.02.07 «Информационные системы и программирование»";
+                    break;
+                case "11.02.14 «Электронные приборы и устройства»":
+                    Specials.SelectedItem = "11.02.14 «Электронные приборы и устройства»";
+                    break;
+                case "38.02.01 «Экономика и бухгалтерский отчет (по отраслям)»":
+                    Specials.SelectedItem = "38.02.01 «Экономика и бухгалтерский отчет (по отраслям)»";
+                    break;
+                case "11.02.02 «Техническое обслуживание и ремонт радиоэлектронной техники (по отраслям)»":
+                    Specials.SelectedItem = "11.02.02 «Техническое обслуживание и ремонт радиоэлектронной техники (по отраслям)»";
+                    break;
                 default:
-                    student.Speciality = null; 
+                    student.Speciality = null;
                     break;
             }
 
@@ -248,7 +264,7 @@ namespace InspectionBoard.Views
                     EducationMethod.SelectedItem = "По договору об оказании платных услуг";
                     break;
                 default:
-                    student.Speciality = null;
+                    student.EducationalMethod = null;
                     break;
             }
 
@@ -269,10 +285,6 @@ namespace InspectionBoard.Views
         {
             switch (student.Nationality)
             {
-
-                //"РФ", "Украина", "Беларусь", "Казахстан",
-                //"Армения", "Азербайджан", "Грузия", "Молдова",
-                //"Таджикистан", "Туркменистан", "Узбекистан", "Киргизия", "Другое..."
                 case "РФ":
                     Countries.SelectedItem = "РФ";
                     break;
@@ -310,7 +322,7 @@ namespace InspectionBoard.Views
                     Countries.SelectedItem = "Киргизия";
                     break;
                 default:
-                    student.Speciality = null;
+                    student.Nationality = null;
                     break;
             }
 
@@ -361,10 +373,17 @@ namespace InspectionBoard.Views
 
         private void RadioButton_Checked_4(object sender, RoutedEventArgs e)
         {
+            Education.Text = null;
             Education.Visibility = Visibility.Visible;
-
         }
-    } 
+
+        private void Check_Education(Student student)
+        {
+            if (student.Education == "9 классов") radiobutton_checked_3.IsChecked = true;
+            else if (student.Education == "11 классов") radiobutton_checked_5.IsChecked = true;
+            else radiobutton_checked_4.IsChecked = true;
+        }
+    }
 }
           
            
