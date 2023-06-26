@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:InspectionBoard.ViewModels"
         xmlns:local="clr-namespace:InspectionBoard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1142"
+        Title="Список абитуриентов" Height="450" Width="1142"
         WindowStartupLocation="CenterScreen">
 
     <Window.DataContext>
@@ -22,12 +22,8 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row ="0" HorizontalAlignment="Center" Height="32">
-            <TextBlock>Список студентов</TextBlock>
-        </StackPanel>
-        <DataGrid Grid.Row="1" x:Name="ViewAllStudents" Height="350" ItemsSource="{Binding AllStudents}" SelectedItem="{Binding SelectedStudent}" Width="1132" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" x:Name="ViewAllStudents" Height="350" ItemsSource="{Binding AllStudents}" SelectedItem="{Binding SelectedStudent}" Width="1132" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="№" Binding="{Binding IdStudent}"/>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding LastName}"/>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>

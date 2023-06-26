@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:InspectionBoard.Views" 
         xmlns:viewmodels="clr-namespace:InspectionBoard.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:AddStudentVM}"
         mc:Ignorable="d"
-        Title="AddStudentWindow"  Height="480" Width="830"
+        Title="Добавление абитуриента"  Height="480" Width="830"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>

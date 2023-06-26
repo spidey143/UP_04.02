@@ -69,6 +69,7 @@ namespace InspectionBoard.Views
                 string fileBytes = File.ReadAllText(filePath);
                 Invalid_Img.Text = filePath;
                 Invalid_Img_Bytes.Text = fileBytes;
+                AddStudentVM.newInvalidImg = Encoding.UTF8.GetBytes(Invalid_Img_Bytes.Text);
             }
         }
 
