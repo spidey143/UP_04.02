@@ -25,7 +25,7 @@ namespace InspectionBoard.Views
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static ListView AllStudentsView;
+        public static DataGrid AllStudentsView;
        
         public MainWindow()
         {
